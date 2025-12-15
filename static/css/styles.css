@@ -1,0 +1,303 @@
+/* -----------------------------
+   Base Body Styles chatGPT help
+-------------------------------- */
+html, body {
+    height: 100%;              /* ensures gradient fills the full viewport */
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Sans MS', 'Chalkboard', sans-serif;
+    color: #333;
+
+    /* Smooth gradient from grassy green to sky blue */
+    background: linear-gradient(to bottom, #c0f2a0 0%, #b0e0c7 50%, #a0e6ff 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* -----------------------------
+   Headers
+-------------------------------- */
+h1, h2, h3 {
+    font-family: 'Arial Black', sans-serif;
+    color: #1a5f3d; /* dino green */
+    text-shadow: 2px 2px #84c0c6; /* subtle blue shadow */
+}
+
+/* -----------------------------
+   Navbar
+-------------------------------- */
+nav {
+    background-color: #1a5f3d; /* dino green */
+    color: #ffffff;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: #c0f2a0; /* light green */
+    text-decoration: none;
+    margin: 0 0.5rem;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #84c0c6; /* light blue hover */
+}
+
+/* -----------------------------
+   Buttons
+-------------------------------- */
+button, input[type="submit"] {
+    background: linear-gradient(to bottom, #4db6ac, #1a5f3d);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 5px #368077;
+    transition: all 0.2s ease;
+}
+
+button:hover, input[type="submit"]:hover {
+    background: linear-gradient(to bottom, #84c0c6, #1a5f3d);
+    box-shadow: 0 3px #368077;
+    transform: translateY(2px);
+}
+
+/* -----------------------------
+   Forms
+-------------------------------- */
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+select {
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 2px solid #1a5f3d;
+    outline: none;
+    font-size: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+select:focus {
+    border-color: #4db6ac;
+    box-shadow: 0 0 5px #84c0c6;
+}
+
+/* -----------------------------
+   Cards & Panels
+-------------------------------- */
+.card {
+    background-color: #c0f2a0; /* light grassy green */
+    border-radius: 15px;
+    padding: 1rem;
+    margin: 1rem 0;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+    border: 2px solid #1a5f3d;
+}
+
+/* -----------------------------
+   Tables
+-------------------------------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+table th, table td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 2px solid #1a5f3d;
+}
+
+table th {
+    background-color: #4db6ac;
+    color: #fff;
+}
+
+table tr:nth-child(even) {
+    background-color: #e0f7ea;
+}
+
+/* -----------------------------
+   Footer
+-------------------------------- */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #1a5f3d;
+    color: #c0f2a0;
+    font-weight: bold;
+}
+
+/* -----------------------------
+   Misc Fun Accents
+-------------------------------- */
+.dino-icon {
+    font-size: 2rem;
+    margin-right: 0.5rem;
+}
+
+.highlight {
+    color: #84c0c6;
+    font-weight: bold;
+}
+
+/* Logout Button */
+.logout-btn {
+    background: linear-gradient(135deg, #34d399, #3b82f6); /* green to blue gradient */
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.logout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.watermark {
+  position: fixed;
+  font-family: 'Arial Black', sans-serif;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -25%) rotate(0deg);
+  font-size: 3rem;
+  color: rgba(0, 0, 0, 0.05); /* faint */
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 0;
+  text-align: center;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+/* length of input boxes */
+input {
+    max-width: 400px;
+}
+ /* length of drop down box */
+select {
+    max-width: 250px;
+}
+
+/* center "you're in the zone */
+.dashboard-header h1 {
+    text-align: center;
+    width: 100%;
+}
+
+/* flashing text */
+
+h1 {
+  color: #00B2B2;
+  position: relative;
+  font-size: 2rem;
+  text-transform: uppercase;
+  animation: flicker 1.5s infinite;
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow:
+      0 0 2px #00E0E0,
+      0 0 5px #00CED1,
+      0 0 10px #00CED1,
+      0 0 15px #00B2B2;
+  }
+  20%, 24%, 55% {
+    text-shadow:
+      0 0 10px #00E0E0,
+      0 0 20px #00CED1,
+      0 0 30px #00E0E0,
+      0 0 40px #00B2B2;
+  }
+}
+
+h2 {
+  color: #00B2B2;
+  position: relative;
+  font-size: 2rem;
+  text-transform: uppercase;
+  animation: flicker 1.5s infinite;
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow:
+      0 0 2px #00E0E0,
+      0 0 5px #00CED1,
+      0 0 10px #00CED1,
+      0 0 15px #00B2B2;
+  }
+  20%, 24%, 55% {
+    text-shadow:
+      0 0 10px #00E0E0,
+      0 0 20px #00CED1,
+      0 0 30px #00E0E0,
+      0 0 40px #00B2B2;
+  }
+}
+
+h3 {
+  color: #00B2B2;
+  position: relative;
+  font-size: 2rem;
+  text-transform: uppercase;
+  animation: flicker 1.5s infinite;
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow:
+      0 0 2px #00E0E0,
+      0 0 5px #00CED1,
+      0 0 10px #00CED1,
+      0 0 15px #00B2B2;
+  }
+  20%, 24%, 55% {
+    text-shadow:
+      0 0 10px #00E0E0,
+      0 0 20px #00CED1,
+      0 0 30px #00E0E0,
+      0 0 40px #00B2B2;
+  }
+}
+
+
+
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* makes items start from the left */
+    padding: 10px 20px; /* adjust spacing */
+    border-bottom: 1px solid #ccc; /* optional */
+}
+
+.logo {
+    width: 60px; /* adjust size as needed */
+    height: 60px; /* same as width for circle */
+    border-radius: 50%; /* makes it circular */
+    object-fit: cover; /* ensures image fills the circle without distortion */
+    margin-right: 15px; /* space between logo and other items */
+}

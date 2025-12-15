@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<h1>🏅Goal Getters🏅:</h1>
+<h3> <b>💥 Enter the Zone</b> 💥</h3>
+
+<form method="post">
+    <!-- child username chatGPT help and tutoring -->
+    <label for="child_id">Username:</label><br>
+    <input type="text" id="child_id" name="child_id" required><br><br>
+
+    <!-- child password -->
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" required><br><br>
+
+    <button type="submit">Let's Go!</button>
+</form>
+
+<p>
+    Not a member?
+    <a href="{{ url_for('register') }}">Join the Club</a>
+</p>
+
+{% endblock %}
+

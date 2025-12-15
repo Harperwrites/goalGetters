@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- Watermark will be handled entirely in CSS, no extra HTML element needed -->
+
+
+
+<!-- Wrap everything in a div with class "content" to layer above watermark -->
+<div class="content">
+
+<div class="dashboard-container">
+
+    <!-- Header -->
+    <header class="dashboard-header">
+        <h1>⚡️ You're in the zone now ⚡️</h1>
+    </header>
+
+    <!-- New Task Form -->
+    <section class="new-goal-section mb-4">
+        <h3>⚡️Start a new goal</h3>
+
+    <!-- FLEX ROW FOR ALL INPUTS -->
+    <form method="POST" action="{{ url_for('new_goal') }}" class="goal-input-row">
+
+        <input type="text" name="title" class="form-control"
+               placeholder="Description of my goal" required>
+
+        <input type="date" name="due_date" class="form-control" required>
+
+        <select name="frequency" class="form-select">
+            <option value="" selected disabled>Frequency (how often) ?</option>
+            <option value="one-time">One time</option>
+            <option value="daily">Everyday</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary add-btn">Add</button>
+    </form>
+</section>
+
+    </section>
+
+    <!-- Main Content Section -->
+    <div class="container mt-4">
+        <h2 class="mb-3"> 🌀 My Goals ✨</h2>
+
+        <!-- INCOMPLETE TASKS -->
+        <div class="row">
+            {% for goal in goals %}
+            <div class="col-md-4">
+                <div class="card shadow-sm mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ goal.title }}</h5>
+                        <p class="mb-1"><strong>Frequency:</strong> {{ goal.frequency }}</p>
+                        <p class="mb-1"><strong>Due:</strong>
+                            {% if goal.due_date %}
+                                {{ goal.due_date.strftime('%b %d, %Y') }}
+                            {% else %}
+                                No due date
+                            {% endif %}
+                        </p>
+                        <form method="POST" action="{{ url_for('complete_goal', goal_id=goal.id) }}">
+                            <button class="btn btn-success btn-sm w-100">Mark Complete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <hr class="my-4">
+
+        <!-- VIEW COMPLETED TASKS -->
+        <details>
+            <summary class="h5">Completed Goal History</summary>
+            <ul class="list-group mt-3">
+                {% for goal in all_goals %}
+                    {% if goal.completed %}
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>{{ goal.title }}</span>
+                        <span class="text-muted">
+                            {{ goal.due_date.strftime('%b %d') if goal.due_date else '' }}
+                        </span>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </details>
+    </div>
+
+</div>
+
+<!-- Stats -->
+<div class="status-card">
+    <p><b>Goals Completed</b></p>
+    <span>{{ all_goals | selectattr("completed") | selectattr("completed", "eq", True) | list | length }}</span>
+</div>
+
+</div> <!-- End of .content -->
+
+{% endblock %}

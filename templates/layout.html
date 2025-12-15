@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/goal.png') }}">
+
+
+    <header class="dashboard-header">
+    <img src="{{ url_for('static', filename='images/goal.png') }}" alt="Goal Getters Logo" class="logo">
+    <!-- Other header content -->
+</header>
+
+
+    <div class="d-flex justify-content-end mb-3">
+    <a href="{{ url_for('logout') }}" class="btn logout-btn">Logout</a>
+</div>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}?v=1">
+
+    <title>Goal Getters</title>
+
+    <!-- Bootstrap CSS (v5) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+<body>
+  <div class="watermark">🫵🏽 Your goals are✨ <br> ✨your greatness 🫵🏽</div>
+
+</body>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
